@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+body { margin: 0; padding:0; font-family: Roboto, Arial, Helvetica, sans-serif; }
+.flex-container {
+    display: flex;
+  }
+
+.flex-container > div {
+    padding-left: 60px;
+    font-size: 20px;
+}
+
+.ams-logo {
+    width: 40px;
+}
+
+.spacer {
+ padding-left: 30px;
+ flex: 0 1 auto;
+}
+
+.search-spacer {
+ flex: 2 0 auto;
+}
+
+.icon-spacer {
+    padding-left: 20px;
+}
