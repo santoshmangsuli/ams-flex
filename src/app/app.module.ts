@@ -7,11 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSidenavModule} from '@angular/material/sidenav';
 
 import {MatGridListModule, MatToolbarModule, MatIconModule, MatFormFieldModule,
-  MatInputModule, MatButtonModule, MatListModule, MatCardModule } from '@angular/material';
+  MatInputModule, MatButtonModule, MatListModule, MatCardModule, MatRadioModule
+ } from '@angular/material';
+ import {MatExpansionModule} from '@angular/material/expansion';
+import { MyToDosComponent } from './my-to-dos/my-to-dos.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MyToDosComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,9 @@ import {MatGridListModule, MatToolbarModule, MatIconModule, MatFormFieldModule,
     MatSidenavModule,
     MatListModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatExpansionModule,
+    MatRadioModule
     
   ],
   providers: [],
