@@ -1,4 +1,4 @@
-<div >
+<div class="container">
     <mat-toolbar color="primary">
         <mat-toolbar-row>
             <div>
@@ -33,7 +33,7 @@
         <mat-sidenav mode="side" opened class="sidenav">
             <div fxLayout="column">
                 <mat-nav-list>
-                    <a mat-list-item>
+                    <a routerLink="" routerLinkActive="active" mat-list-item>
                         <mat-icon matListIcon> home </mat-icon>
                         <mat-label>Home</mat-label>
                     </a>
@@ -41,59 +41,15 @@
                         <mat-icon matListIcon> dashboard </mat-icon>
                         <mat-label> Dashboard </mat-label>
                     </a>
+                    <a routerLink="residents" routerLinkActive="active" mat-list-item>
+                        <mat-icon matListIcon> people </mat-icon>
+                        <mat-label> Residents </mat-label>
+                    </a>
                 </mat-nav-list>
             </div>
         </mat-sidenav>
-        <mat-sidenav-content>
-            <mat-grid-list cols="2" rowHeight="2:1" fxFlexFill>
-                <mat-grid-tile>
-                    <div>
-                        <h3 class="MuiTypography-overline">Home</h3>
-                        <h1 class="MuiTypography-h3">Good Morning, Santosh</h1>
-                        <h5 class="MuiTypography-subtitle1">Here’s what’s happening with your apartment today</h5>
-                    </div>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                    <img src="../assets/landscape.jpg">
-                </mat-grid-tile>
-            </mat-grid-list>
-            <div style="display:flex; flex-direction: row; flex-wrap: wrap"  fxLayoutAlign="center center">
-                <mat-card class="main-card" [class.mat-elevation-z2]=true>
-                    <mat-card-header>
-                        <mat-card-title>
-                            <div class="MuiTypography-h2">Rs 4,440/-</div>
-                        </mat-card-title>
-                        <mat-card-subtitle>Payment due</mat-card-subtitle>
-                    </mat-card-header>
-                </mat-card>
-                <mat-card class="main-card"  [class.mat-elevation-z2]=true>
-                    <mat-card-header>
-                        <mat-card-title>
-                                <div class="MuiTypography-h2">2</div>
-                        </mat-card-title>
-                        <mat-card-subtitle>New Messages</mat-card-subtitle>
-                    </mat-card-header>
-                </mat-card>
-                <mat-card class="main-card"  [class.mat-elevation-z2]=true>
-                    <mat-card-header>
-                        <mat-card-title>
-                                <div class="MuiTypography-h2">0</div>
-                        </mat-card-title>
-                        <mat-card-subtitle>Visitors for you</mat-card-subtitle>
-                    </mat-card-header>
-                </mat-card>
-                <mat-card class="main-card"  [class.mat-elevation-z2]=true>
-                    <mat-card-header>
-                        <mat-card-title>
-                                <div class="MuiTypography-h2">2</div>
-                        </mat-card-title>
-                        <mat-card-subtitle>Open requests</mat-card-subtitle>
-                    </mat-card-header>
-                </mat-card>
-            </div>
-            <div>
-                <app-my-to-dos></app-my-to-dos>
-            </div>
+        <mat-sidenav-content class="container">
+                <router-outlet></router-outlet>            
         </mat-sidenav-content>
     </mat-sidenav-container>
 </div>
