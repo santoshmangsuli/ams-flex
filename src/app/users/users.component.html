@@ -1,51 +1,58 @@
-<div fxLayout="column" class="ams-user-table">
-    <div>
-        <h3 class="MuiTypography-overline">Management</h3>
-        <h1 class="MuiTypography-h3">All Users</h1>
+<div class="ams-user">
+    <div class="box">
+        <div style="flex:15 1 auto;">
+            <h4 class="MuiTypography-overline">Management</h4>
+            <h1 class="MuiTypography-h3">Customers</h1>
+        </div>
+        <div style="flex:1 1 auto;">
+            <button mat-raised-button color="primary">Add Customer</button>
+        </div>
     </div>
-    
-    <!-- <div style="z-index:5; position : fixed;display : flex; 
-            align-self : flex-end;bottom : 10%; margin-bottom : 490px;">
-        <button mat-fab color="primary" style="margin-left :1200px;" (click)="navigateToUserForm()">
-            <mat-icon>add</mat-icon>
-        </button>
-    </div> -->
-    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">   
-        <ng-container matColumnDef="Name">
-            <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
-            <mat-cell *matCellDef="let user">
-                <img matListAvatar src="{{evalAvatar(user.gender)}}" alt="...">
-                {{user.persnFirstName}} {{user.persnLastName}}
-            </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="Mobile#">
-            <mat-header-cell *matHeaderCellDef>Mobile#</mat-header-cell>
-            <mat-cell *matCellDef="let user">{{user.mobileNumber}}</mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="Gender">
-            <mat-header-cell *matHeaderCellDef>Gender</mat-header-cell>
-            <mat-cell *matCellDef="let user">{{evalGender(user.gender)}}</mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="Type">
-            <mat-header-cell *matHeaderCellDef>Type</mat-header-cell>
-            <mat-cell *matCellDef="let user">{{user.type}}</mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="Amount Due">
-            <mat-header-cell *matHeaderCellDef>Amount Due (in Rs)</mat-header-cell>
-            <mat-cell *matCellDef="let user">{{user.amtDue}}</mat-cell>
-        </ng-container>    
-        <ng-container matColumnDef="Action">
-            <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
-            <mat-cell *matCellDef="let user">
-                <a [routerLink]="['/edituser']" [state]="user">
-                    <mat-icon>edit</mat-icon>
-                </a>
-            </mat-cell>
-        </ng-container>
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-
-    </mat-table>
-    <mat-paginator #paginator [length]="10" [pageSize]="3" [pageSizeOptions]="[3, 5, 10]" showFirstLastButtons>
-    </mat-paginator>
+    <div style="flex:1 1 auto;">
+        <mat-form-field style="height:55px" appearance="outline">
+            <mat-icon matPrefix>search</mat-icon>
+            <input matInput placeholder="Search">
+        </mat-form-field>
+        <span class="icon-spacer"></span>
+        <button style="height:55px;width:100px" mat-raised-button color="primary">Search</button>
+    </div>
+    <div style="margin-top:30px">
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="Name">
+                <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+                <mat-cell *matCellDef="let user">
+                    <img matListAvatar src="{{evalAvatar(user.gender)}}" alt="...">
+                    {{user.persnFirstName}} {{user.persnLastName}}
+                </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Mobile#">
+                <mat-header-cell *matHeaderCellDef>Mobile#</mat-header-cell>
+                <mat-cell *matCellDef="let user">{{user.mobileNumber}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Gender">
+                <mat-header-cell *matHeaderCellDef>Gender</mat-header-cell>
+                <mat-cell *matCellDef="let user">{{evalGender(user.gender)}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Type">
+                <mat-header-cell *matHeaderCellDef>Type</mat-header-cell>
+                <mat-cell *matCellDef="let user">{{user.type}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Amount Due">
+                <mat-header-cell *matHeaderCellDef>Amount Due (in Rs)</mat-header-cell>
+                <mat-cell *matCellDef="let user">{{user.amtDue}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Action">
+                <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+                <mat-cell *matCellDef="let user">
+                    <a [routerLink]="['/edituser']" [state]="user">
+                        <mat-icon>edit</mat-icon>
+                    </a>
+                </mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        </mat-table>
+        <mat-paginator #paginator [length]="10" [pageSize]="3" [pageSizeOptions]="[3, 5, 10]" showFirstLastButtons>
+        </mat-paginator>
+    </div>
 </div>

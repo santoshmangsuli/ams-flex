@@ -1,4 +1,4 @@
-<div class="container">
+<div>
     <mat-toolbar color="primary">
         <mat-toolbar-row>
             <div>
@@ -37,19 +37,37 @@
                         <mat-icon matListIcon> home </mat-icon>
                         <mat-label>Home</mat-label>
                     </a>
-                    <a mat-list-item>
-                        <mat-icon matListIcon> dashboard </mat-icon>
-                        <mat-label> Dashboard </mat-label>
-                    </a>
                     <a routerLink="residents" routerLinkActive="active" mat-list-item>
                         <mat-icon matListIcon> people </mat-icon>
                         <mat-label> Residents </mat-label>
-                    </a>
+                    </a>                   
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                          <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Billing
+                            </mat-panel-title>
+                          </mat-expansion-panel-header>
+                            <a routerLink="billing" routerLinkActive="active" mat-list-item>
+                                <mat-icon matListIcon> description </mat-icon>
+                                <mat-label> Create Bill </mat-label>
+                            </a>    
+                            <a routerLink="billdashboard" routerLinkActive="active" mat-list-item>
+                                <mat-icon matListIcon> dashboard </mat-icon>
+                                <mat-label> Dashboard </mat-label>
+                            </a>    
+                        </mat-expansion-panel>
+                      </mat-accordion>
+                      <a routerLink="residents" routerLinkActive="active" mat-list-item>
+                        <mat-icon matListIcon> people </mat-icon>
+                        <mat-label> Visitors </mat-label>
+                    </a> 
                 </mat-nav-list>
             </div>
         </mat-sidenav>
-        <mat-sidenav-content class="container">
+        <mat-sidenav-content> 
                 <router-outlet></router-outlet>            
-        </mat-sidenav-content>
-    </mat-sidenav-container>
+    </mat-sidenav-content>
+    </mat-sidenav-container> 
 </div>
+

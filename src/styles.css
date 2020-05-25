@@ -67,4 +67,22 @@ body { margin: 0; padding:0; font-family: Roboto, Arial, Helvetica, sans-serif; 
 
 
 .container {
+    height: 100%;
+  }
+
+  .box {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .one {
+    flex: 1 1 auto;
+  }
+  
+  .two {
+    flex: 1 1 auto;
+  }
+  
+  .three {
+    flex: 1 1 auto;
   }

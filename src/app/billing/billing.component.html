@@ -1,0 +1,17 @@
+<div class="ams-billing">
+    <div class="box">
+        <div style="flex:15 1 auto;">
+            <h4 class="MuiTypography-overline">Billing</h4>
+            <h1 class="MuiTypography-h3">Invoice</h1>
+        </div>
+    </div>
+    <div style="flex:1 1 auto;;margin-bottom: 30px;">
+        <mat-form-field style="height:55px" appearance="outline">
+            <mat-icon matPrefix>search</mat-icon>
+            <input matInput placeholder="Search Customer">
+        </mat-form-field>
+        <span class="icon-spacer"></span>
+        <button style="height:55px;width:100px" mat-raised-button color="primary">Search</button>
+    </div>
+    <app-bill [items]="bill.items" [state]="state" [bill]="bill"></app-bill>
+</div>

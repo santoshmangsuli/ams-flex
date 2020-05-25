@@ -1,0 +1,12 @@
+.ams-user-edit{
+    margin: 30px 30px 30px 30px;
+    overflow: auto;
+    height:600px;
+}
+
+.mat-list-item:nth-child(odd){
+    background-color: #e4f0ec;
+  }
+.mat-list-item:nth-child(even){
+    background-color:#ffffff;
+}

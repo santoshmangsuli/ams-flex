@@ -1,0 +1,148 @@
+<div class="ams-user-edit">
+    <div>
+        <h4 class="MuiTypography-overline">Customers</h4>
+        <h1 class="MuiTypography-h3">{{user.persnFirstName+' '+user.persnLastName}}</h1>
+    </div>
+    <div matLine>
+        <div fxLayout="column">
+            <div fxLayout="row">
+                <div fxFlex="50" style="padding:5px 5px 5px 5px ">
+                    <mat-card >
+                        <mat-card-title>Customer Info</mat-card-title>
+                        <mat-divider></mat-divider>
+                        <mat-card-content>
+                            <mat-list role="list">
+                                <mat-list-item role="listitem">
+                                    <div matLine>
+                                        <div fxLayout="column">
+                                            <div fxLayout="row">
+                                                <div fxFlex="50"> Email </div>
+                                                <div fxFlex="50"> {{user.email}} </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <mat-divider></mat-divider>
+                                </mat-list-item>
+                                <mat-list-item role="listitem">
+                                    <div matLine>
+                                        <div fxLayout="column">
+                                            <div fxLayout="row">
+                                                <div fxFlex="50"> Phone </div>
+                                                <div fxFlex="50"> {{user.mobileNumber}} </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <mat-divider></mat-divider>
+                                </mat-list-item>
+                                <mat-list-item role="listitem">
+                                    <div matLine>
+                                        <div fxLayout="column">
+                                            <div fxLayout="row">
+                                                <div fxFlex="50"> Flat No </div>
+                                                <div fxFlex="50"> {{user.owner.flatNo}} </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <mat-divider></mat-divider>
+                                </mat-list-item>
+                                <mat-list-item role="listitem">
+                                    <div matLine>
+                                        <div fxLayout="column">
+                                            <div fxLayout="row">
+                                                <div fxFlex="50"> Residence Type </div>
+                                                <div fxFlex="50"> {{user.type}} </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <mat-divider></mat-divider>
+                                </mat-list-item>
+                            </mat-list>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <div style="padding-left:10px">
+                                <button mat-button>
+                                    <mat-icon>edit</mat-icon>
+                                    <span
+                                        style="padding-left:20px;font-family: Roboto, Arial, Helvetica, sans-serif;font-size: 20px">Edit</span>
+                                </button>
+                            </div>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            <div fxFlex="50" style="padding:5px 5px 5px 5px ">
+                <mat-card >
+                    <mat-card-title>Invoice/Billing</mat-card-title>
+                    <mat-divider></mat-divider>
+                    <mat-card-content>
+                        <mat-list role="list">
+                            <mat-list-item role="listitem">
+                                <div matLine>
+                                    <div fxLayout="column">
+                                        <div fxLayout="row">
+                                            <div fxFlex="50"> Invoice Number  </div>
+                                            <div fxFlex="50"> {{bill.invoicenumber}} </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <mat-divider></mat-divider>
+                            </mat-list-item>
+                            <mat-list-item role="listitem">
+                                <div matLine>
+                                    <div fxLayout="column">
+                                        <div fxLayout="row">
+                                            <div fxFlex="50"> Status </div>
+                                            <div fxFlex="50"> {{bill.status}} </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <mat-divider></mat-divider>
+                            </mat-list-item>
+                            <mat-list-item role="listitem">
+                                <div matLine>
+                                    <div fxLayout="column">
+                                        <div fxLayout="row">
+                                            <div fxFlex="50"> Amount Due </div>
+                                            <div fxFlex="50"> {{user.amtDue}} </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <mat-divider></mat-divider>
+                            </mat-list-item>
+                            <mat-list-item role="listitem">
+                                <div matLine>
+                                    <div fxLayout="column">
+                                        <div fxLayout="row">
+                                            <div fxFlex="50"> Bill Due Date </div>
+                                            <div fxFlex="50"> {{bill.dueDate | date}} </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <mat-divider></mat-divider>
+                            </mat-list-item>
+                            <mat-list-item role="listitem">
+                                <div matLine>
+                                    <div fxLayout="column">
+                                        <div fxLayout="row">
+                                            <div fxFlex="50"> Bill Period </div>
+                                            <div fxFlex="50"> {{bill.billStDate | date}}-{{bill.billEndDate | date}} </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <mat-divider></mat-divider>
+                            </mat-list-item>
+                        </mat-list>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <div style="padding-left:10px">
+                            <button mat-button>
+                                <mat-icon>edit</mat-icon>
+                                <span
+                                    style="padding-left:20px;font-family: Roboto, Arial, Helvetica, sans-serif;font-size: 20px">Edit</span>
+                            </button>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

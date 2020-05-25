@@ -1,0 +1,13 @@
+<div class="bill-table-container mat-elevation-z8">
+    <mat-table #table [dataSource]="dsTransactions">
+            <!-- ID Column -->
+        <ng-container *ngFor="let col of displayedColumns" [matColumnDef]="col">
+            <mat-header-cell *matHeaderCellDef> {{col | titlecase}} </mat-header-cell>
+            <mat-cell *matCellDef="let row">{{getValue(col,row)}}</mat-cell>
+            <mat-cell mat-footer-cell *matFooterCellDef> {{getFooterValue(col)}} </mat-cell>
+        </ng-container>            
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        <mat-row mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></mat-row>
+    </mat-table>
+</div>

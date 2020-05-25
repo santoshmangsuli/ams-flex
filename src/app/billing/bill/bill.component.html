@@ -1,0 +1,86 @@
+<mat-card style="margin-top:20px" *ngIf="state=='CRBILL'">
+    <div class="box">
+        <div style="flex:15 1 auto;">
+            <mat-form-field>
+                <mat-label>Services</mat-label>
+                <mat-select [(value)]="tempItem">
+                    <mat-option>None</mat-option>
+                    <mat-option *ngFor="let service of services" [value]="service">{{service.serviceName}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div style="flex:1 1 auto;">
+            <button mat-raised-button color="primary" (click)="addItem()">Add Item</button>
+        </div>
+    </div>
+</mat-card>
+<mat-card style="margin-top:20px" *ngIf="state=='DASHB'">
+    <div fxLayout="column">
+        <div fxLayout="row" style="padding: 5px">
+            <div fxFlex="50">
+                <mat-label fxFlex="50">Cust Name:</mat-label>
+                <span style="padding-left:30px" fxFlex="50">{{bill.person.persnFirstName+' '+bill.person.persnLastName}}</span>
+            </div>
+            <div fxFlex="50">
+                <mat-label fxFlex="50">Bill Due Date:</mat-label>
+                <span style="padding-left:30px" fxFlex="50">{{bill.dueDate | date}}</span>
+            </div>
+        </div>
+        <div fxLayout="row"  style="padding: 5px">
+            <div fxFlex="50">
+                <mat-label fxFlex="50">Flat No:</mat-label>
+                <span style="padding-left:30px" fxFlex="50">{{bill.person.owner.flatNo}}</span>
+            </div>
+            <div fxFlex="50">
+                <mat-label fxFlex="50">Bill period:</mat-label>
+                <span style="padding-left:30px" fxFlex="50">{{bill.billStDate | date}}-{{bill.billEndDate | date}}</span>
+            </div>
+        </div>
+    </div>
+</mat-card>
+
+<div class="bill-table-container mat-elevation-z8">
+    <mat-table #table [dataSource]="dsTransactions">
+        <!-- ID Column -->
+        <ng-container matColumnDef="item">
+            <mat-header-cell *matHeaderCellDef> Item </mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.serviceName}}</mat-cell>
+            <mat-cell mat-footer-cell *matFooterCellDef> Total </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="quantity">
+            <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.quantity}}</mat-cell>
+            <mat-cell mat-footer-cell *matFooterCellDef> </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="rateperitem">
+            <mat-header-cell *matHeaderCellDef> Rate/Item </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.chargePerItem}} </mat-cell>
+            <mat-cell mat-footer-cell *matFooterCellDef> </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="tax">
+            <mat-header-cell *matHeaderCellDef> Tax </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.chargePerItem * row.gst /100}} </mat-cell>
+            <mat-cell mat-footer-cell *matFooterCellDef> {{getTotalTax() | currency}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="gst">
+            <mat-header-cell *matHeaderCellDef> GST </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.gst}} </mat-cell>
+            <mat-cell mat-footer-cell *matFooterCellDef> </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="total">
+            <mat-header-cell *matHeaderCellDef> Total </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+                {{row.chargePerItem * row.quantity + (row.chargePerItem * row.gst /100)}} </mat-cell>
+            <mat-cell mat-footer-cell *matFooterCellDef> {{getTotalCost() | currency}} </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        <mat-row mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></mat-row>
+    </mat-table>
+</div>
+<app-gen-table [displayedColumns]=displayedColumns 
+[dsTransactions]=dsTransactions 
+[colPropMap]=colPropMap 
+[footerPropMap]="footerPropMap"></app-gen-table>

@@ -5,6 +5,7 @@ export class User {
     persnFirstName: string;
     persnLastName: string;
     mobileNumber: number;
+    email: string;
     gender: string;
     type: string;
     owner: Flat;

@@ -4,39 +4,19 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, from, BehaviorSubject } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { User } from './model/user';
+import {Users} from '../data/users';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
 
-  tableArr: User[] = [{
-    'persnId': 1001, 'persnFirstName': 'Santosh', 'persnLastName': 'Mangsuli',
-    'mobileNumber': 9972110105,
-    'gender': '1',
-    'type': 'owner',
-    'owner': { flatNo: 2000, area: 1040, block: 'A' },
-    'amtDue': 2001.09
-  },{
-    'persnId': 1002, 'persnFirstName': 'Ramesh', 'persnLastName': 'Belligundi',
-    'mobileNumber': 9989898989,
-    'gender': '1',
-    'type': 'owner',
-    'owner': { flatNo: 2001, area: 1040, block: 'A' },
-    'amtDue': 2001.09
-  },{
-    'persnId': 1003, 'persnFirstName': 'Raghu', 'persnLastName': 'Kulkarni',
-    'mobileNumber': 9989877798,
-    'gender': '1',
-    'type': 'owner',
-    'owner': { flatNo: 2002, area: 1040, block: 'A' },
-    'amtDue': 781.09
-  }
-  ];
+  tableArr: User[];
 
   private usersArraySubject:BehaviorSubject<User[]>;
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient,private users:Users) {
+    this.tableArr = this.users.users; 
     this.usersArraySubject = new BehaviorSubject<User[]>(this.tableArr);
   }
 
